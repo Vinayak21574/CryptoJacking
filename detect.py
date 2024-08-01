@@ -13,7 +13,8 @@ TYPE="monero"
 
 blocks=BlockSeries(f'block_create_time_{TYPE}.csv')
 # captures=PcapReader("..\\data_capture\\traffic\\capture-2024-06-27_17-49-07.pcap")
-captures=PcapReader("..\\GatewayTraffic\\capture-2024-07-30_00-05-14.pcap")
+# captures=PcapReader("..\\GatewayTraffic\\capture-2024-07-30_00-05-14.pcap")
+captures=PcapReader("../aggregator/capture-2024-07-30_00-05-14.pcap")
 
 
 START_TIME=captures.start_time
