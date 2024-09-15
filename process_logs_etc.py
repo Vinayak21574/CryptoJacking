@@ -6,9 +6,9 @@ from tqdm import tqdm
 import pytz
 
 def log_dir_analysis():
-    out_path = f'../bitmonero/total_res.log'
+    out_path = f'./total_res.log'
     out = open(out_path, "w")
-    input_dir = "../bitmonero/logs_etc"
+    input_dir = "./logs/etc"
     for file_name in tqdm(os.listdir(input_dir)):
         input_path = f'{input_dir}/{file_name}'
         fp = open(input_path, "r")
@@ -46,14 +46,14 @@ def ist_to_unix(date_str):
     
     # Convert the IST datetime to Unix time
     unix_time = int(ist_datetime.timestamp())
-    utc_time=ist_datetime.astimezone(pytz.utc)
+    utc_time=ist_datetime.astimezone(pytz.utc).replace(tzinfo=None,microsecond=0)
     
     return unix_time,utc_time
 
 
 def block_analysis():
-    input_path = f'../bitmonero/total_res.log'
-    out_path = f'../bitmonero/block_create_time_etc.csv'
+    input_path = f'./total_res.log'
+    out_path = f'./block_create_time_etc.csv'
 
     data_df = pd.read_csv(input_path, sep='\t', on_bad_lines='skip')
     
@@ -61,7 +61,7 @@ def block_analysis():
     height_list = []
     time_str_list = []
     
-    with open(f'../bitmonero/total_res.log',"r") as f:
+    with open(f'./total_res.log',"r") as f:
         line=f.readline()
         while(line):
             temp=line.split()

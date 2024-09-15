@@ -5,9 +5,9 @@ import datetime
 from tqdm import tqdm
 
 def log_dir_analysis():
-    out_path = f'../bitmonero/total_res.log'
+    out_path = f'./total_res.log'
     out = open(out_path, "w")
-    input_dir = "../bitmonero/logs"
+    input_dir = "./logs/monero"
     for file_name in tqdm(os.listdir(input_dir)):
         input_path = f'{input_dir}/{file_name}'
         fp = open(input_path, "r")
@@ -29,8 +29,8 @@ def time2timestamp(dt):
     return int(timeArray)
 
 def block_analysis():
-    input_path = f'../bitmonero/total_res.log'
-    out_path = f'../bitmonero/block_create_time_total.csv'
+    input_path = f'./total_res.log'
+    out_path = f'./block_create_time_monero.csv'
     columns_name = ['time', 'node', 'log_type', 'msg_type', 'code_locate'
         , 'transfer_msg']
     data_df = pd.read_csv(input_path, sep='\t', on_bad_lines='skip', names=columns_name)
