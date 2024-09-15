@@ -1,0 +1,9 @@
+version=1.0
+pcapInputPath=/home/blockcc/Merged_2024-08-13_07-39-53_2024-08-13_17-29-53.pcap
+blockFilePath=/home/blockcc/CryptoJacking/block_create_time_etc.csv
+outPutPath=RESULTS_etc.csv
+blockIntervalThres=10
+packetLenThres=66
+globalTableSizeThres=10000
+detectTimeScope=[60,10800]
+
